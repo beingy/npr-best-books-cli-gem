@@ -1,30 +1,32 @@
 require 'pry'
 
 class NPRBestBooks::CLI
-  attr_accessor :year, :books
+  attr_accessor :year, :books, :current_book_id
 
   def call
     @year = 2015
     @books = []
+    @current_book_id = ""
     list_books
     menu
+  end
+
+  def book_list(year)
+    @books = []
+    book_total = 57
+    book_total.times do |i|
+      @books << "Book #{i+1} from #{@year}"
+    end
+    @books
   end
 
   def list_books
     puts "+===> Welcome to NPR's Book Concierge <===+"
     puts "+=====> Guide to #{@year}'s Great Reads <=====+"
-    puts <<-DOC.gsub(/^\s*/, "")
-      Science Fiction & Fantasy book recommendations in alphabetical order:
-      1. Ancillary Mercy by Ann Leckie
-      2. Bitch Planet Vol. 1: Extraordinary Machine by Kelly Sue DeConnick, illustrated by Valentine De Landro
-      3. ...
-      57. Your Alien by Tammi Sauer, illustrated by Goro Fujita
-    DOC
+    puts "Science Fiction & Fantasy book recommendations in alphabetical order:"
 
-    57.times do |i|
-      @books << i.to_s
-    end
-
+    book_list(@year).each.with_index(1) {|book, index| puts "#{index}. #{book}"}
+    puts "Total book recommendations from #{@year}: #{@books.count}"
   end
 
   def menu
@@ -36,7 +38,10 @@ class NPRBestBooks::CLI
       input = gets.strip.downcase
       
       if input.to_i >= 1 && input.to_i <= @books.count
+        @current_book_id = input.to_i
+        current_book_array_id = @current_book_id - 1
         puts "+=========================================+"
+        puts "+= " + "list id: #{@current_book_id}, title: #{@books[current_book_array_id]}"
         puts "+= " + "Ancillary Mercy by Ann Leckie"
         puts "+= " + "Recommended by Genevieve Valentine, book critic"
         puts "+= " + "It would be a mistake to go into Ancillary Mercy hoping for the same lightning-strike of Ancillary Justice. The first installment of Ann Leckie's trilogy opened a world; by now, things are so complicated for protagonist Breq that all you can hope for is to be satisfied. Luckily, Mercy delivers. The world-building particularly shines in the machinations of this closing chapter, as Breq tries to use her new political powers to stop a war with all the weapons the Radchaai Empire has at its disposal: insinuation, shifting loyalties and the second-best tea set."
@@ -70,7 +75,7 @@ class NPRBestBooks::CLI
     puts "'list' to show book list again, 'more' to see recommendations from another year, 'exit' to end program."
     print "+==> Command: "
     input = ""
-    while input != "exit" || input != "more" || input != "list"
+    while input != "exit" || input != "more" || input != "list" || (input.to_i >= 1 && input.to_i <= @books.count)
       input = gets.strip.downcase
       if input.to_s == "list"
         list_books
@@ -81,7 +86,10 @@ class NPRBestBooks::CLI
         puts "Exiting program..."
         goodbye
       elsif input.to_i >= 1 && input.to_i <= @books.count
+        @current_book_id = input.to_i
+        current_book_array_id = @current_book_id - 1
         puts "+=========================================+"
+        puts "+= " + "list id: #{@current_book_id}, title: #{@books[current_book_array_id]}"
         puts "+= " + "Ancillary Mercy by Ann Leckie"
         puts "+= " + "Recommended by Genevieve Valentine, book critic"
         puts "+= " + "It would be a mistake to go into Ancillary Mercy hoping for the same lightning-strike of Ancillary Justice. The first installment of Ann Leckie's trilogy opened a world; by now, things are so complicated for protagonist Breq that all you can hope for is to be satisfied. Luckily, Mercy delivers. The world-building particularly shines in the machinations of this closing chapter, as Breq tries to use her new political powers to stop a war with all the weapons the Radchaai Empire has at its disposal: insinuation, shifting loyalties and the second-best tea set."
