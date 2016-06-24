@@ -1,5 +1,2 @@
-require "npr_best_books/version"
-
-module NprBestBooks
-  # Your code goes here...
-end
+require_relative './npr_best_books/version'
+require_relative './npr_best_books/cli'

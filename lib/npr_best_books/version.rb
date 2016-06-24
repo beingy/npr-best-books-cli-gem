@@ -1,3 +1,3 @@
-module NprBestBooks
+module NPRBestBooks
   VERSION = "0.1.0"
 end

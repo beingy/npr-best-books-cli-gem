@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+require './lib/npr_best_books'
+
+NPRBestBooks::CLI.new.call
