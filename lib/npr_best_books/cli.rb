@@ -51,7 +51,7 @@ class NPRBestBooks::CLI
         bookreview_linewrap(bookreview)
         puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, (ISBN-13 #{@list[current_book_array_id].isbn13})"
         puts "=> " + "Paperback: #{@list[current_book_array_id].booklength}"
-        puts "=> " + "Publisher: #{@list[current_book_array_id].publisher}"
+        puts "=> " + "Publisher: #{NPRBestBooks::Book.lookup_publisher(@list[current_book_array_id])}"
         puts "=> " + "Average Amazon Customer Review:"
         puts "   " + "#{@list[current_book_array_id].amazonreview}"
         puts "=> " + "Amazon Buy New Price: #{@list[current_book_array_id].amazonprice}"
@@ -104,7 +104,7 @@ class NPRBestBooks::CLI
         bookreview_linewrap(bookreview)
         puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, (ISBN-13 #{@list[current_book_array_id].isbn13})"
         puts "=> " + "Paperback: #{@list[current_book_array_id].booklength}"
-        puts "=> " + "Publisher: #{@list[current_book_array_id].publisher}"
+        puts "=> " + "Publisher: #{NPRBestBooks::Book.lookup_publisher(@list[current_book_array_id])}"
         puts "=> " + "Average Amazon Customer Review:"
         puts "   " + "#{@list[current_book_array_id].amazonreview}"
         puts "=> " + "Amazon Buy New Price: #{@list[current_book_array_id].amazonprice}"

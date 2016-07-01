@@ -6,8 +6,6 @@ require 'json'
 require 'pry'
 
 class NPRBestBooks::Scraper
-  BASE_URL = "http://apps.npr.org"
-  @@list_2015 = "/best-books-2015/"
 
   def self.books
     puts "Loading books..."
@@ -25,8 +23,9 @@ class NPRBestBooks::Scraper
     part3
   end
 
-
-  # def self.scrape_amazon
-  # end
+  def self.lookup_amazon(book)
+    amazon_html = Nokogiri::HTML(open(book.amazonurl))
+    amazon_html
+  end
 
 end

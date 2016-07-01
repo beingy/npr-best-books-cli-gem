@@ -26,11 +26,6 @@ class NPRBestBooks::List
         book.bookreview = book_hash["text"]
         book.isbn = book_hash["isbn"]
         book.isbn13 = book_hash["isbn13"]
-        book.booklength = "need to add booklength"
-        book.publisher = "need to add publisher"
-        book.amazonurl = "need to add amazonurl"
-        book.amazonreview = "need to add amazonreview"
-        book.amazonprice = "need to add amazonprice"
       end
       @list.books
     end
@@ -51,6 +46,10 @@ class NPRBestBooks::List
       book_id = 1
       @list1.books.each do |book|
         book.id = book_id
+        book.amazonurl = NPRBestBooks::Book.lookup_amazonurl(book)
+        book.booklength = "need to add booklength"
+        book.amazonreview = "need to add amazonreview"
+        book.amazonprice = "need to add amazonprice"
         puts "#{book.id}. #{book.title} by #{book.author}"
         book_id += 1
       end

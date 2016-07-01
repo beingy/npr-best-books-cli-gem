@@ -5,13 +5,13 @@ require 'npr_best_books/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "npr_best_books"
-  spec.version       = NprBestBooks::VERSION
+  spec.version       = NPRBestBooks::VERSION
   spec.authors       = ["beingy"]
   spec.email         = ["beingy@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "CLI Gem to retrieve book recomendations from NPR's Book Concierge website."
+  spec.description   = "NWelcome to my NPR Book Concierge CLI Gem.  Current version will check [NPR's Book Concierge website](http://apps.npr.org/best-books-2015) and retrieve 2015's book recommendations in the Science Fiction and Fantasy genre."
+  spec.homepage      = "https://github.com/beingy/npr-best-books-cli-gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -30,4 +30,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_runtime_dependency "bundler", "~> 1.12"
+  spec.add_runtime_dependency "nokogiri", "~> 1.6"
+  spec.add_dependency "json", "~> 1.8"
+
 end
