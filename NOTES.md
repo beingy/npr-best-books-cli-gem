@@ -35,3 +35,27 @@ Average Amazon Customer Review: 4.3 out of 5 stars (233 reviews)
 Amazon Buy New Price: $9.59
 
 Type 'back' to go back to book list. Type 'exit' to end program. Type 'more' to see recommendations from previous years.
+
+What is a list of books?
+
+A list has_many books
+A list has a year
+A list has a genre/title
+
+What is a book?
+
+Phase 1 (scrape NPR)
+A book belongs to a list (for now, may belong_to_many lists per cross genre)
+A book has a title
+A book has an author
+A book has a recommender
+A book has a recomendation description
+A book has one or more genres
+
+Phrase 2 (scrape Amazon)
+A book has an ISBN
+A book has a publisher
+A book has a number of pages)
+A book has a type (Hardcover or Paperback)
+A book has an Amazon rating
+A book has an Amazon price
