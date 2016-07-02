@@ -23,8 +23,8 @@ class NPRBestBooks::Scraper
     part3
   end
 
-  def self.lookup_amazon(book)
-    amazon_html = Nokogiri::HTML(open(book.amazonurl))
+  def self.lookup_amazon(url)
+    amazon_html = Nokogiri::HTML(open(url))
     amazon_html
   end
 

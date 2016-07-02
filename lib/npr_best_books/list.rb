@@ -47,9 +47,6 @@ class NPRBestBooks::List
       @list1.books.each do |book|
         book.id = book_id
         book.amazonurl = NPRBestBooks::Book.lookup_amazonurl(book)
-        book.booklength = "need to add booklength"
-        book.amazonreview = "need to add amazonreview"
-        book.amazonprice = "need to add amazonprice"
         puts "#{book.id}. #{book.title} by #{book.author}"
         book_id += 1
       end
@@ -59,26 +56,6 @@ class NPRBestBooks::List
 
   def self.all_years
     @@list_years
-  end
-
-  def self.book_list(year = "2015" , genre = "Science Fiction & Fantasy")
-    @books = []
-    stub_book_list = self.stub_2015
-    year_index = self.list_years.index(year)
-    book_total = stub_book_list[year_index][:books]
-    book_total.to_i.times do |i|
-      @books << "Book #{i+1} from #{@year}"
-    end
-    @books
-  end
-
-  def self.list_years
-    stub_list_years = self.stub
-    @available_year = []
-    stub_list_years.each do |hash|
-      @available_year << hash[:year]
-    end
-    @available_year
   end
 
 end
