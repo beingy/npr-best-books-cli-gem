@@ -19,12 +19,12 @@ class NPRBestBooks::CLI
 
   def list_books
     if @list
-      puts "#{@year}'s Science Fiction & Fantasy recommendations:"
+      puts "\r#{@year}'s Science Fiction & Fantasy recommendations:"
       @list = NPRBestBooks::List.science_fiction_and_fantasy
       puts "Total #{@year} NPR Science Fiction & Fantasy recommendations: #{@list.count} books"
     else
       NPRBestBooks::List.latest
-      puts "#{@year}'s Science Fiction & Fantasy recommendations:"
+      puts "\r#{@year}'s Science Fiction & Fantasy recommendations:"
       @list = NPRBestBooks::List.science_fiction_and_fantasy
       puts "Total #{@year} NPR Science Fiction & Fantasy recommendations: #{@list.count} books"
     end
@@ -37,7 +37,7 @@ class NPRBestBooks::CLI
     input = ""
     while input != "exit"
       input = gets.strip.downcase
-      
+
       if input.to_i >= 1 && input.to_i <= @list.count
         @current_book_id = input.to_i
         current_book_array_id = @current_book_id - 1
@@ -54,10 +54,11 @@ class NPRBestBooks::CLI
         puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, ISBN-13 #{@list[current_book_array_id].isbn13}"
         puts "=> " + "Average Amazon Customer Reviews:"
         begin
+          print "   " + "Loading Amazon Ratings..."
           NPRBestBooks::Book.lookup_amazonreviews(@list[current_book_array_id])
-          puts "   " + "#{@list[current_book_array_id].amazonratings} (#{@list[current_book_array_id].amazonreviews} Reviews)"
+          puts "\r   " + "#{@list[current_book_array_id].amazonratings} (#{@list[current_book_array_id].amazonreviews} Reviews)"
         rescue OpenURI::HTTPError => error
-          puts "   " + "Data currently unavailable (#{error}). Try again later."
+          puts "\r   " + "Data currently unavailable (#{error}). Try again later."
         end
         puts "================================================================================"
         sub_menu
@@ -107,13 +108,14 @@ class NPRBestBooks::CLI
         puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, ISBN-13 #{@list[current_book_array_id].isbn13}"
         puts "=> " + "Average Amazon Customer Reviews:"
         begin
+          print "   " + "Loading Amazon Ratings..."
           NPRBestBooks::Book.lookup_amazonreviews(@list[current_book_array_id])
-          puts "   " + "#{@list[current_book_array_id].amazonratings} (#{@list[current_book_array_id].amazonreviews} Reviews)"
+          puts "\r   " + "#{@list[current_book_array_id].amazonratings} (#{@list[current_book_array_id].amazonreviews} Reviews)"
         rescue OpenURI::HTTPError => error
-          puts "   " + "Data currently unavailable (#{error}). Try again later."
+          puts "\r   " + "Data currently unavailable (#{error}). Try again later."
         end
         puts "================================================================================"
-        sub_menu   
+        sub_menu
       else
         puts "Invalid command, please try again. Error on: '#{input}'."
         puts "'list' to show book list again, 'exit' to end program."
