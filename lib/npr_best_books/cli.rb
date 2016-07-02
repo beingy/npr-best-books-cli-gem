@@ -104,7 +104,7 @@ class NPRBestBooks::CLI
         bookreview = bookreview.gsub("<em>","")
         bookreview = bookreview.gsub("</em>","")
         bookreview_linewrap(bookreview)
-        puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, (ISBN-13 #{@list[current_book_array_id].isbn13})"
+        puts "=> " + "ISBN: #{@list[current_book_array_id].isbn}, ISBN-13 #{@list[current_book_array_id].isbn13}"
         puts "=> " + "Average Amazon Customer Reviews:"
         begin
           NPRBestBooks::Book.lookup_amazonreviews(@list[current_book_array_id])

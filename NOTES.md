@@ -36,13 +36,13 @@ Amazon Buy New Price: $9.59
 
 Type 'back' to go back to book list. Type 'exit' to end program. Type 'more' to see recommendations from previous years.
 
-What is a list of books?
+#What is a list of books?
 
 A list has_many books
 A list has a year
 A list has a genre/title
 
-What is a book?
+#What is a book?
 
 Phase 1 (scrape NPR)
 A book belongs to a list (for now, may belong_to_many lists per cross genre)
