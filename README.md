@@ -24,7 +24,9 @@ To exit CLI gem, type `exit` in the CLI command prompt.
 Alternatively, you can run the CLI gem using IRB:
 
 1) Run `irb`.
+
 2) Enter `require 'npr_best_books'` and get a `true` as return value.
+
 3) Enter `NPRBestBooks::CLI.new.call` to start the CLI gem.
 
 For example,
