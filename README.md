@@ -10,28 +10,42 @@ Install by running the following:
 
 ## Usage
 
-1) After installation is completed, start by running `IRB`:
+After gem installation is completed, type `npr_best_books` in your bash command line to start the CLI gem.
+
+    $ npr_best_books
+    $ == Welcome to NPR's Book Concierge ==
+    $ == A Guide to 2015's Great Reads ==
+    $ Loading latest list...
+    $ Loading books...
+    $ ...
+
+To exit CLI gem, type `exit` in the CLI command prompt.
+
+Alternatively, you can run the CLI gem using IRB:
+
+1) Run `irb`.
+2) Enter `require 'npr_best_books'` and get a `true` as return value.
+3) Enter `NPRBestBooks::CLI.new.call` to start the CLI gem.
+
+For example,
 
     $ irb
-
-2) Then require the newly install gem:
-
     $ > require 'npr_best_books'
-    $  => true
-
-NOTE: If after `requiring 'npr_best_books'` you do not get a `true` return value, please kindly let me know as you have encountered an error.
-
-3) Run the following command in IRB to start CLI gem:
-
+    $ => true
     $ > NPRBestBooks::CLI.new.call
+    $ == Welcome to NPR's Book Concierge ==
+    $ == A Guide to 2015's Great Reads ==
+    $ Loading latest list...
+    $ Loading books...
+    $ ...
 
-4) Enjoy.
-
-## Current Known Issues
+## Current Known Issues/Fixes
 
 Running `gem install 'npr_best_books'` also installs an executable in your gem folder so you can run `npr-best-books` in your bash command line and attempt to use this CLI gem as is.  However, this executable is encountering the following message:
 
     $ cannot load such file -- ./lib/npr_best_books (LoadError)
+
+Update: 7/5/2016 - Issue fixed by using the require_all gem seems to do the trick by adding `require 'require_all'` and `require_rel '../lib'` to the `bin/npr_best_books` executable file.  The environment file `lib/npr_best_books.rb` now `require_relative` all `*.rb` files.
 
 ## Development
 

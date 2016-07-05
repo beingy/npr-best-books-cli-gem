@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["beingy@gmail.com"]
 
   spec.summary       = "CLI gem to list book recomendations from NPR's Book Concierge website."
-  spec.description   = "A simple CLI gem to list NPR Book Concierge website's 2015 book recommendations in the Science Fiction and Fantasy genre."
+  spec.description   = "A simple CLI gem to list NPR Book Concierge website's 2015 book recommendations by genre."
   spec.homepage      = "https://github.com/beingy/npr-best-books-cli-gem"
   spec.license       = "MIT"
 
