@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'require_all'
-require_rel '../lib'
-
-NPRBestBooks::CLI.new.call
