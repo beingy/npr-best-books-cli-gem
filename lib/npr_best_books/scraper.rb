@@ -1,7 +1,7 @@
-require 'rubygems'
-require 'nokogiri'
-require 'open-uri'
-require 'json'
+# require 'rubygems'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'json'
 
 class NPRBestBooks::Scraper
 

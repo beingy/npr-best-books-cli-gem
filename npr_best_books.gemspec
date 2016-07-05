@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/beingy/npr-best-books-cli-gem"
   spec.license       = "MIT"
 
-  spec.files         = ["lib/npr_best_books.rb", "lib/npr_best_books/book.rb", "lib/npr_best_books/cli.rb", "lib/npr_best_books/list.rb", "lib/npr_best_books/scraper.rb", "lib/npr_best_books/version.rb", "bin/npr_best_books", "README.md"]
+  spec.files         = ["lib/npr_best_books.rb", "lib/npr_best_books/book.rb", "lib/npr_best_books/cli.rb", "lib/npr_best_books/list.rb", "lib/npr_best_books/scraper.rb", "lib/npr_best_books/version.rb", "bin/npr_best_books", "README.md", "Gemfile", "bin/setup", "bin/console"]
   spec.bindir        = "bin"
   spec.executables   = "npr_best_books"
   spec.require_paths = ["lib"]

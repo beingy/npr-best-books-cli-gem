@@ -1,5 +1,3 @@
-require 'pry'
-
 class NPRBestBooks::CLI
   attr_accessor :current_book_id, :list, :year
 

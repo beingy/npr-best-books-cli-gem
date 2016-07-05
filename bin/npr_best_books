@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'require_all'
-require_all 'lib/npr_best_books.rb'
+require_rel '../lib'
 
 NPRBestBooks::CLI.new.call
