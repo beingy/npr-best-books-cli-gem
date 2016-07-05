@@ -5,4 +5,4 @@ require 'npr_best_books/list'
 require 'npr_best_books/book'
 require 'npr_best_books/cli'
 
-# require_relative './
+# prefix require_relative './ replaced by require '

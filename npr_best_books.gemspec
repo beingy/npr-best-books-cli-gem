@@ -14,14 +14,15 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/beingy/npr-best-books-cli-gem"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.files         = ["lib/npr_best_books.rb", "lib/npr_best_books/book.rb", "lib/npr_best_books/cli.rb", "lib/npr_best_books/list.rb", "lib/npr_best_books/scraper.rb", , "lib/npr_best_books/version.rb", "bin/npr_best_books", "README.md"]
+  spec.bindir        = "bin"
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_runtime_dependency "require_all" , '~> 1.3', '>= 1.3.3'
 
   spec.add_runtime_dependency "nokogiri", "~> 1.6"
   spec.add_runtime_dependency "json", "~> 1.8"
