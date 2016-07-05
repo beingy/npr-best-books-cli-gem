@@ -3,8 +3,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-require 'pry'
-
 class NPRBestBooks::Scraper
 
   def self.books
