@@ -7,17 +7,23 @@ A simple CLI gem to list NPR Book Concierge website's 2015 book recommendations 
 Install by running the following:
 
     $ gem install npr_best_books
+    Fetching: npr_best_books-0.2.0.gem (100%)
+    Successfully installed npr_best_books-0.2.0
+    1 gem installed
 
 ## Usage
 
 After gem installation is completed, type `npr_best_books` in your bash command line to start the CLI gem.
 
     $ npr_best_books
-    $ == Welcome to NPR's Book Concierge ==
-    $ == A Guide to 2015's Great Reads ==
-    $ Loading latest list...
-    $ Loading books...
-    $ ...
+    == Welcome to NPR's Book Concierge ==
+    == A Guide to 2015's Great Reads ==
+    Loading latest list...
+    Loading books...
+    2015's Science Fiction & Fantasy recommendations:
+    1. ...
+    2. ...
+    ...
 
 To exit CLI gem, type `exit` in the CLI command prompt.
 
@@ -33,13 +39,13 @@ For example,
 
     $ irb
     $ > require 'npr_best_books'
-    $ => true
+     => true
     $ > NPRBestBooks::CLI.new.call
-    $ == Welcome to NPR's Book Concierge ==
-    $ == A Guide to 2015's Great Reads ==
-    $ Loading latest list...
-    $ Loading books...
-    $ ...
+     == Welcome to NPR's Book Concierge ==
+     == A Guide to 2015's Great Reads ==
+     Loading latest list...
+     Loading books...
+     ...
 
 ## Current Known Issues/Fixes
 
@@ -48,6 +54,22 @@ Running `gem install 'npr_best_books'` also installs an executable in your gem f
     $ cannot load such file -- ./lib/npr_best_books (LoadError)
 
 Update: 7/5/2016 - Issue fixed by using the require_all gem seems to do the trick by adding `require 'require_all'` and `require_rel '../lib'` to the `bin/npr_best_books` executable file.  The environment file `lib/npr_best_books.rb` now `require_relative` all `*.rb` files.
+
+## Next Steps
+
+1. Refactor
+
+2. Feed data from NPR API
+
+3. Additional features:
+
+  + add more genres
+
+  + add book recommendations from other years
+
+  + add more book details
+
+  + auto detect latest year available and change book list to other years
 
 ## Development
 
@@ -58,7 +80,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/beingy/npr_best_books. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 
 ## License
 
