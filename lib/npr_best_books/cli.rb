@@ -30,7 +30,7 @@ class NPRBestBooks::CLI
 
   def menu
     puts "Enter the 'number' of the book you'd like to learn more about, or:"
-    puts "'exit' to end program, 'more' to see recommendations from other years"
+    puts "'exit' to end program"
     print "==> Command: "
     input = ""
     while input != "exit"
