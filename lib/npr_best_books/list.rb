@@ -1,6 +1,6 @@
 class NPRBestBooks::List
 
-  attr_accessor :year, :name, :books, :list
+  attr_accessor :year, :name, :books, :list, :list_sff
 
   @@list_years = [ 2015 ]
 
@@ -33,24 +33,24 @@ class NPRBestBooks::List
 
   def self.science_fiction_and_fantasy
     # @list1 assigned to science_fiction_and_fantasy
-    if @list1
-      @list1.books.each do |book|
+    if @list_sff
+      @list_sff.books.each do |book|
         puts "#{book.id}. #{book.title} by #{book.author}"
       end
-      @list1.books
+      @list_sff.books
     else
-      @list1 = self.new
-      @list1.year = @@list_years.last
-      @list1.name = "Science Fiction and Fantasy"
-      @list1.books = NPRBestBooks::Book.science_fiction_and_fantasy
+      @list_sff = self.new
+      @list_sff.year = @@list_years.last
+      @list_sff.name = "Science Fiction and Fantasy"
+      @list_sff.books = NPRBestBooks::Book.science_fiction_and_fantasy
       book_id = 1
-      @list1.books.each do |book|
+      @list_sff.books.each do |book|
         book.id = book_id
         book.amazonurl = NPRBestBooks::Book.lookup_amazonurl(book)
         puts "#{book.id}. #{book.title} by #{book.author}"
         book_id += 1
       end
-      @list1.books
+      @list_sff.books
     end
   end
 
